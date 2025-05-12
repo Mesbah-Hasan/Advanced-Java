@@ -1,0 +1,37 @@
+class AC implements Runnable {
+    @Override
+    public void run() {
+        for (int i = 0; i < 100; i++) {
+            System.out.println("First runnable:");
+            try {
+                Thread.sleep(5);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+class CDD implements Runnable {
+    @Override
+    public void run() {
+        for (int i = 0; i < 100; i++) {
+            System.out.println("Second runnable:");
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
+public class MultiThreadingRunnable {
+    public static void main(String[] args) {
+        AC ac = new AC();
+        CDD cdd = new CDD();
+        Thread t1 = new Thread(ac);
+        Thread t2 = new Thread(cdd);
+        t1.start();
+        t2.start();
+    }
+}
