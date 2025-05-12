@@ -24,6 +24,21 @@ class CDD implements Runnable {
         }
     }
 }
+class  CDE implements Runnable {
+
+    @Override
+    public void run() {
+        for (int i = 0; i < 100; i++) {
+            System.out.println("Third runnable: Runningggggggggggggggggggggggggggg");
+           try {
+               Thread.sleep(10000);
+           }
+           catch (InterruptedException e) {
+               e.printStackTrace();
+           }
+        }
+    }
+}
 
 public class MultiThreadingRunnable {
     public static void main(String[] args) {
@@ -33,5 +48,7 @@ public class MultiThreadingRunnable {
         Thread t2 = new Thread(cdd);
         t1.start();
         t2.start();
+        Thread t3 = new Thread(new CDE());
+        t3.start();
     }
 }
