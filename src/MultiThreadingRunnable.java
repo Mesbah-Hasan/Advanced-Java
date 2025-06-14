@@ -4,7 +4,7 @@ class AC implements Runnable {
         for (int i = 0; i < 100; i++) {
             System.out.println("First runnable:");
             try {
-                Thread.sleep(5);
+                Thread.sleep(200);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
